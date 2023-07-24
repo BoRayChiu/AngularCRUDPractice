@@ -1,0 +1,4 @@
+<button *ngIf="!isPosting" (click)="isPosting=true">新增文章</button>
+<div *ngIf="isPosting"><input [(ngModel)]="title" (keyup.escape)="cancelPostArticle()" (keyup.enter)="postArticle()" type="text" size="50"></div>
+<span><button *ngIf="isPosting" (click)="cancelPostArticle()">取消新增</button></span>
+<span><button *ngIf="isPosting" (click)="postArticle()">新增文章</button></span>

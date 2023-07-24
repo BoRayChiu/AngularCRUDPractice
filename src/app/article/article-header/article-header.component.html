@@ -1,0 +1,11 @@
+<header class="post-header">
+  <h2 class="post-title">
+      <a *ngIf="!isEdited">{{ $article().title }}</a>
+      <div *ngIf="isEdited"><input [ngModel]="$article()" (keyup.enter)="doChangeTitle();" (keyup.escape)="doCancelEdited()" type="text" size="50"></div>
+  </h2>
+  <div class="post-info clearfix">
+    <span><button (click)="doDeleteArticle()">刪除文章</button></span>
+    <span><button *ngIf="!isEdited" (click)="isEdited=true">編輯標題</button></span>
+    <span><button *ngIf="isEdited" (click)="isEdited=false;doCancelEdited();">取消編輯</button></span>
+  </div>
+</header>
